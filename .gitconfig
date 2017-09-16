@@ -1,0 +1,15 @@
+[user]
+    name = itnow
+    email = itnow@users.noreply.github.com
+[push]
+    default = simple
+[core]
+    autocrlf = input
+    excludesFile = ~/.gitignore_global
+[alias]
+    cm = commit -m
+    lol = log --oneline --graph --decorate --all
+    lof = log --oneline --graph --decorate --all --name-only
+[credential]
+    helper = cache --timeout=3600
+
