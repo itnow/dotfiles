@@ -10,6 +10,7 @@
     cm = commit -m
     lol = log --oneline --graph --decorate --all
     lof = log --oneline --graph --decorate --all --name-only
+    minclone = clone --depth=1 --branch=master
 [credential]
     helper = cache --timeout=3600
 
