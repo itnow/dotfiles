@@ -39,10 +39,8 @@ call plug#begin('~/.vim/plugged')
 " Reload .vimrc and :PlugInstall to install plugins.
 
 Plug 'vim-airline/vim-airline'
-
 " On-demand loading
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-commentary'
 Plug 'ervandew/supertab'
@@ -153,12 +151,24 @@ set hlsearch                    " highlight matches
 
 
 
+" Search down into subfolders.
+" Provides tab-completion for all file-related tasks:
+" - Hit tab to :find by particular match
+" - Use * to make it fuzzy
+"
+" set path+=**
+set path+=$PWD/**
+
+
+
+
 " enable all Python syntax highlighting features
 let python_highlight_all = 1
 
 
 " NERDTree settings
 let NERDTreeShowHidden = 1        " show hidden files
+
 
 " CtrlP settings
 " let g:ctrlp_match_window = 'bottom,order:ttb'
@@ -193,6 +203,7 @@ let g:airline_symbols.paste = 'ρ'
 let g:airline_symbols.spell = 'Ꞩ'
 let g:airline_symbols.notexists = '∄'
 let g:airline_symbols.whitespace = 'Ξ'
+
 
 " Enable the list of buffers
 let g:airline#extensions#tabline#enabled = 1
