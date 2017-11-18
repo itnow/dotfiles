@@ -83,15 +83,21 @@ set laststatus=2                " Always display status line
 set splitright
 set diffopt+=vertical           " Always use vertical diffs
 
-set tabstop=4
-set softtabstop=4
-set expandtab
-set shiftwidth=4                " number of spaces to use for autoindenting
-set shiftround                  " use multiple of shiftwidth when indenting with '<' and '>'
+set tabstop=4                   " A hard TAB displays as 4 columns.
+set softtabstop=4               " Insert/delete 4 spaces when hitting a TAB/BACKSPACE.
+set expandtab                   " Insert spaces when hitting TABs.
+set shiftwidth=4                " Number of spaces to use for autoindenting,
+                                " operation '>>' indents 4 columns,
+                                " '<<' unindents 4 columns.
+set shiftround                  " Round indent to multiple of 'shiftwidth'
+                                " when indenting with '<' and '>'.
+set autoindent                  " Always set autoindenting on.
+set copyindent                  " Copy the previous indentation on autoindenting.
+
 set backspace=indent,eol,start  " allow backspacing over everything in insert mode
-set autoindent                  " always set autoindenting on
-set copyindent                  " copy the previous indentation on autoindenting
-set colorcolumn=80              " hightlight at specified column
+
+set colorcolumn=80              " Hightlight at specified column.
+
 " DOCS: https://upload.wikimedia.org/wikipedia/en/1/15/Xterm_256color_chart.svg
 hi ColorColumn ctermbg=236
 
