@@ -66,8 +66,19 @@ if [ "$COLORTERM" == "xfce4-terminal" ] ; then
 fi
 
 
+# Set colors
+COLOR_RESET='\[\e[0m\]'         # Removes all formatting and colors
+COLOR_GREEN='\[\e[1;32m\]'
+COLOR_YELLOW='\[\e[1;33m\]'
+
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\e[01;32m\]\u\[\e[01;33m\]:\w\[\e[01;00m\]$(__git_ps1 "(%s)")\[\e[01;32m\]\$\[\e[00m\] '
+    PS1='${debian_chroot:+($debian_chroot)}'
+    PS1+="$COLOR_GREEN\u"
+    PS1+="$COLOR_YELLOW:\w"
+    # To remove leading space use: '$(__git_ps1 "(%s)")'
+    PS1+="$COLOR_RESET"'$(__git_ps1)'
+    PS1+="$COLOR_GREEN\$"
+    PS1+="$COLOR_RESET "        # Reset & space
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
@@ -127,6 +138,7 @@ if ! shopt -oq posix; then
 fi
 
 
-# Load in the git branch prompt script
-source ~/git-prompt.sh
+# pipenv settings
+export PIPENV_VENV_IN_PROJECT=true
+export PIPENV_NOSPIN=true
 
