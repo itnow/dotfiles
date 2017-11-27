@@ -95,9 +95,9 @@ menubar_visible=1
 free_space=1
 horizontal_split=0
 vertical_equal=0
-left_panel_size=52
+left_panel_size=50
 horizontal_equal=1
-top_panel_size=1
+top_panel_size=25
 
 [Misc]
 /* timeformat_recent=%b %e %H:%M */
