@@ -73,6 +73,7 @@ if [ "$color_prompt" = yes ]; then
     PS1+="$CLGREEN\u$CLWHITE:$CLYELLOW\w"
     # To remove leading space use: '$(__git_ps1 "(%s)")'
     PS1+="$CLRESET"'$(__git_ps1)'
+    PS1+='\n'            # New line
     PS1+="$CLGREEN"'\$'  # Single quotes required for \$ to work
     PS1+="$CLRESET "     # Final reset & space
     unset CLRESET CLGREEN CLYELLOW CLWHITE
@@ -133,6 +134,11 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+
+# Z jump around
+source ~/z.sh
+set $_Z_NO_RESOLVE_SYMLINKS=true
 
 
 # pipenv settings
