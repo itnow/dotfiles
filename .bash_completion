@@ -20,3 +20,12 @@ _pipenv_completion() {
 }
 complete -F _pipenv_completion -o default pipenv
 
+
+# alias dc (docker-compose)
+complete -F _docker_compose dc
+
+
+# NOTE: To find completion string for "some_command" run:
+#   $ complete | grep some_command
+# and replace "some_command" with alias.
+
