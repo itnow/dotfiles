@@ -142,7 +142,16 @@ set number                      " show line numbers
 set cursorline                  " highlight the current line
 set ruler                       " show the cursor position all the time
 
-filetype indent on              " load filetype-specific indent files
+
+syntax enable                   " Enable syntax highlighting
+
+" To see the current status - :filetype
+" To read more - :help :filetype-overview
+filetype plugin indent on
+
+" Shortcuts: tabstop (ts), softtabstop (sts), shiftwidth (sw)
+autocmd FileType yaml setlocal tabstop=2 softtabstop=2 shiftwidth=2
+
 
 set wildmenu                    " visual autocomplete for command menu
 set lazyredraw                  " redraw only when we need to.
