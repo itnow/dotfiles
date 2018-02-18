@@ -192,9 +192,9 @@ vnoremap <C-k> :m '<-2<CR>gv=gv
 " inoremap <C-j> <Esc>:m .+1<CR>==gi
 " inoremap <C-k> <Esc>:m .-2<CR>==gi
 
-" Use enter to create new lines w/o entering insert mode
-nnoremap <CR> o<Esc>
-" Below is to fix issues with the ABOVE mappings in quickfix window
+" Emulate classic 'Enter' key behaviour: add new line before current one
+nnoremap <CR> O<Esc>j
+" Fix issues with the above <CR> mappings in quickfix window
 autocmd CmdwinEnter * nnoremap <CR> <CR>
 autocmd BufReadPost quickfix nnoremap <CR> <CR>
 
