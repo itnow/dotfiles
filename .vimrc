@@ -180,9 +180,29 @@ autocmd FileType yaml setlocal tabstop=2 softtabstop=2 shiftwidth=2
 
 " Keys
 " --------------------------------------------------------------------------
-
+" :help map-overview
+" :help recusive_mapping
 
 let mapleader = " "             " Map leader to spacebar
+
+" Turn off highlighted matches from searches
+nnoremap <leader><leader><leader> :nohlsearch<CR>
+
+" Quick save
+nnoremap <leader>s :update<CR>
+vnoremap <leader>s <Esc>:update<CR>
+
+" Quick close windows / splits
+nnoremap <leader>q :close<CR>
+
+" Toggle paste mode
+set pastetoggle=<F10>
+
+" Emulate classic 'Enter' key behaviour: add new line before current one
+nnoremap <CR> O<Esc>j
+" Fix issues with the above <CR> mappings in quickfix window
+autocmd CmdwinEnter * nnoremap <CR> <CR>
+autocmd BufReadPost quickfix nnoremap <CR> <CR>
 
 " Move lines up/down
 nnoremap <C-j> :m .+1<CR>==
@@ -192,63 +212,31 @@ vnoremap <C-k> :m '<-2<CR>gv=gv
 " inoremap <C-j> <Esc>:m .+1<CR>==gi
 " inoremap <C-k> <Esc>:m .-2<CR>==gi
 
-" Emulate classic 'Enter' key behaviour: add new line before current one
-nnoremap <CR> O<Esc>j
-" Fix issues with the above <CR> mappings in quickfix window
-autocmd CmdwinEnter * nnoremap <CR> <CR>
-autocmd BufReadPost quickfix nnoremap <CR> <CR>
-
-" Toggle paste mode
-set pastetoggle=<F10>
-
-" Navigate properly when lines are wrapped
-" nnoremap j gj
-" nnoremap k gk
-
-" Use tab to jump between blocks, because it's easier
-" nnoremap <tab> %
-" vnoremap <tab> %
-
-" Quick save
-" vnoremap <silent> <C-S>         <C-C>:update<CR>
-" inoremap <silent> <C-S>         <C-O>:update<CR>
-nnoremap <leader>s :update<CR>
-
-" Quickly close windows / splits
-nnoremap <leader>q :close<CR>
-" nnoremap <leader>q :q<cr>
-" nnoremap <leader>X :q!<cr>
-
-" Turn off highlighted matches from searches
-nnoremap <leader><leader><leader> :nohlsearch<CR>
-
 " Move between windows
+nnoremap <leader>w<Tab> :wincmd w<CR>
 nnoremap <leader>wj :wincmd j<CR>
 nnoremap <leader>wk :wincmd k<CR>
 nnoremap <leader>wh :wincmd h<CR>
 nnoremap <leader>wl :wincmd l<CR>
 
-" Resize panes
-" NOTE: not work in tmux
-" nnoremap <silent> <C-Right> :vertical resize +5<cr>
-" nnoremap <silent> <C-Left> :vertical resize -5<cr>
-" nnoremap <silent> <C-Up> :resize +5<cr>
-" nnoremap <silent> <C-Down> :resize -5<cr>
-
 
 " To open a new empty buffer
 nnoremap <leader>t :enew<cr>
+
 " Move to the next buffer
-nnoremap <leader>l :bnext<CR>
+" nnoremap <leader>l :bnext<CR>
 nnoremap <leader><tab> :bnext<CR>
+
 " Move to the previous buffer
-nnoremap <leader>h :bprevious<CR>
+" nnoremap <leader>h :bprevious<CR>
+
 " Close the current buffer and move to the previous one
 " This replicates the idea of closing a tab
-nnoremap <leader>bq :bp <BAR> bd #<CR>
+" nnoremap <leader>bq :bp <BAR> bd #<CR>
 nnoremap <leader>x :bp <BAR> bd #<CR>
+
 " Show all open buffers and their status
-nnoremap <leader>bl :ls<CR>
+" nnoremap <leader>bl :ls<CR>
 
 
 
