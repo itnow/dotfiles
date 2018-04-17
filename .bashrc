@@ -63,20 +63,26 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
+function hg_branch {
+    hg branch 2> /dev/null | sed -e "s/\(.*\)/(\1)/"
+}
+
 if [ "$color_prompt" = yes ]; then
     # Set colors
     CLRESET='\[\e[0m\]'
     CLGREEN='\[\e[1;32m\]'
     CLYELLOW='\[\e[1;33m\]'
+    CLMAGENTA='\[\e[0;35m\]'
     CLWHITE='\[\e[1;37m\]'
     PS1='${debian_chroot:+($debian_chroot)}'
     PS1+="$CLGREEN\u$CLWHITE:$CLYELLOW\w"
     # To remove leading space use: '$(__git_ps1 "(%s)")'
     PS1+="$CLRESET"'$(__git_ps1)'
+    PS1+="$CLMAGENTA"' $(hg_branch)'"$CLRESET"
     PS1+='\n'            # New line
     PS1+="$CLGREEN"'\$'  # Single quotes required for \$ to work
     PS1+="$CLRESET "     # Final reset & space
-    unset CLRESET CLGREEN CLYELLOW CLWHITE
+    unset CLRESET CLGREEN CLYELLOW CLMAGENTA CLWHITE
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
@@ -107,7 +113,7 @@ fi
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 # some more ls aliases
-alias ll='ls -alF --group-directories-first'
+alias ll='ls -alFh --group-directories-first'
 alias la='ls -A'
 alias l='ls -CF --group-directories-first'
 
@@ -140,8 +146,17 @@ fi
 source ~/z.sh
 set $_Z_NO_RESOLVE_SYMLINKS=true
 
-
 # pipenv settings
 export PIPENV_VENV_IN_PROJECT=true
 export PIPENV_NOSPIN=true
 
+# pyenv
+# export PYENV_ROOT="$HOME/.pyenv"
+# PATH="$PYENV_ROOT/bin:$PATH"
+# if command -v pyenv 1>/dev/null 2>&1; then
+#     eval "$(pyenv init -)"
+#     eval "$(pyenv virtualenv-init -)"
+# fi
+
+# golang
+# export PATH=$PATH:/usr/local/go/bin
