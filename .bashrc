@@ -64,7 +64,7 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 function hg_branch {
-    hg branch 2> /dev/null | sed -e "s/\(.*\)/(\1)/"
+    hg branch 2> /dev/null | sed -e "s/\(.*\)/ (\1)/"
 }
 
 if [ "$color_prompt" = yes ]; then
@@ -78,7 +78,7 @@ if [ "$color_prompt" = yes ]; then
     PS1+="$CLGREEN\u$CLWHITE:$CLYELLOW\w"
     # To remove leading space use: '$(__git_ps1 "(%s)")'
     PS1+="$CLRESET"'$(__git_ps1)'
-    PS1+="$CLMAGENTA"' $(hg_branch)'"$CLRESET"
+    PS1+="$CLMAGENTA"'$(hg_branch)'"$CLRESET"
     PS1+='\n'            # New line
     PS1+="$CLGREEN"'\$'  # Single quotes required for \$ to work
     PS1+="$CLRESET "     # Final reset & space
