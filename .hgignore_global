@@ -3,6 +3,11 @@ syntax: glob
 *.dump
 *.sql
 
+.venv/
+.pytest_cache/
+
+.idea/
+
 
 # VisualStudioCode
 # ================
