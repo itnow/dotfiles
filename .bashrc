@@ -16,8 +16,8 @@ HISTCONTROL=ignoreboth
 shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=500
-HISTFILESIZE=100
+HISTSIZE=1000
+HISTFILESIZE=2000
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -33,13 +33,6 @@ shopt -s checkwinsize
 # set variable identifying the chroot you work in (used in the prompt below)
 if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
     debian_chroot=$(cat /etc/debian_chroot)
-fi
-
-# Workaround for XFCE4 terminal
-# That way, the relevant $TERM edit only happens if you're using
-# xfce4-terminal, which just sets it to xterm anyway
-if [ "$COLORTERM" == "xfce4-terminal" ] ; then
-    export TERM=xterm-256color
 fi
 
 # set a fancy prompt (non-color, unless we know we "want" color)
