@@ -26,7 +26,7 @@ ssh = ssh -C
 # uncomment these lines to enable some popular extensions
 # (see 'hg help extensions' for more info)
 #
-# churn =
+churn =
 shelve =
 
 [alias]
