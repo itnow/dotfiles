@@ -8,7 +8,7 @@ set nocompatible
 " endif
 " set backupdir=~/.vim/_bckp//
 if empty(glob('~/.vim/_swp'))
-    silent call mkdir($HOME . '/.vim/_swp', 'p', 0700)
+    silent call mkdir(expand('~/.vim/_swp'), 'p', 0700)
 endif
 set directory=~/.vim/_swp//
 set nobackup
