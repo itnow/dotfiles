@@ -58,6 +58,13 @@ $RECYCLE.BIN/
 
 
 
+# PyCharm
+# =======
+
+.idea/
+
+
+
 # SublimeText.gitignore
 # =====================
 
