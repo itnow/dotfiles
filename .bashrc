@@ -56,10 +56,6 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
-function hg_branch {
-    hg branch 2> /dev/null | sed -e "s/\(.*\)/ (\1)/"
-}
-
 if [ "$color_prompt" = yes ]; then
     # Set colors
     CLRESET='\[\e[0m\]'
@@ -70,8 +66,7 @@ if [ "$color_prompt" = yes ]; then
     PS1='${debian_chroot:+($debian_chroot)}'
     PS1+="$CLGREEN\u$CLWHITE:$CLYELLOW\w"
     # To remove leading space use: '$(__git_ps1 "(%s)")'
-    PS1+="$CLRESET"'$(__git_ps1)'
-    PS1+="$CLMAGENTA"'$(hg_branch)'"$CLRESET"
+    PS1+="$CLMAGENTA"'$(__git_ps1)'"$CLRESET"
     PS1+='\n'            # New line
     PS1+="$CLGREEN"'\$'  # Single quotes required for \$ to work
     PS1+="$CLRESET "     # Final reset & space
@@ -116,7 +111,7 @@ alias sstcplisten='ss -tnpel | column -t'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
-#alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+# alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
