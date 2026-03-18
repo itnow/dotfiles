@@ -138,17 +138,15 @@ fi
 source ~/z.sh
 set $_Z_NO_RESOLVE_SYMLINKS=true
 
-# pipenv settings
-export PIPENV_VENV_IN_PROJECT=true
-export PIPENV_NOSPIN=true
-
-# pyenv
-# export PYENV_ROOT="$HOME/.pyenv"
-# PATH="$PYENV_ROOT/bin:$PATH"
-# if command -v pyenv 1>/dev/null 2>&1; then
-#     eval "$(pyenv init -)"
-#     eval "$(pyenv virtualenv-init -)"
-# fi
 
 # golang
 # export PATH=$PATH:/usr/local/go/bin
+
+
+# Add ~/.local/bin to PATH if missing.
+# Using a guard to prevent duplicate entries since .bashrc runs multiple times.
+case ":$PATH:" in
+  *":$HOME/.local/bin:"*) ;;
+  *) export PATH="$HOME/.local/bin:$PATH" ;;
+esac
+
