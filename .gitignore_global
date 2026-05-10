@@ -60,9 +60,11 @@ $RECYCLE.BIN/
 
 # PyCharm
 # =======
-
 .idea/
 
+# Obsidian
+# =======
+.obsidian/
 
 
 # SublimeText.gitignore
